@@ -33,17 +33,17 @@ It is intended as a quick reference of data structures, functions, and packages 
 
 &nbsp;&nbsp;[ggplot2](#ggplot2)
 
-&nbsp;&nbsp;[utils](#utils)
+&nbsp;&nbsp;[httr](#httr)
+
+&nbsp;&nbsp;[jsonlite](#jsonlite)
+
+&nbsp;&nbsp;[gdata](#gdata)
 
 &nbsp;&nbsp;[readr](#readr)
 
 &nbsp;&nbsp;[readxl](#readxl)
 
 &nbsp;&nbsp;[DBI](#dbi)
-
-&nbsp;&nbsp;[httr](#httr)
-
-&nbsp;&nbsp;[jsonlite](#jsonlite)
 
 &nbsp;&nbsp;[haven](#haven)
 
@@ -247,7 +247,7 @@ ggplot(aes(x=year, y=gdpPercap, color=country)) +
 
 ```
 
-##### <a name="httr"></a>[httr](https://www.rdocumentation.org/packages/gdata)
+##### <a name="httr"></a>[httr](https://www.rdocumentation.org/packages/httr)
 httr provides a library for working with HTTP resources
 ```{r}
 library(httr)
@@ -289,7 +289,7 @@ haven provides a library for working with datasets from other statistical softwa
 ##### <a name="rMarkdown"></a> [R Markdown](https://rmarkdown.rstudio.com/)
 R Markdown provides a library for generating documents (PDF, HTML, Markdown) that include R functions and output.
 
-This cheat sheet was produced using R Markdown. 
+This cheat sheet was produced using R Markdown. The source code for producing it can be found on [Github](https://github.com/rowlanch/my-R-cheat-sheet).
 
 <br />
 

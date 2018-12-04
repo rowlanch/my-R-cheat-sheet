@@ -1,6 +1,13 @@
-This cheat sheet was developed for a course project in MGSC 790 Data Resource Management, a Business Analytics elective in the [PMBA](https://sc.edu/study/colleges_schools/moore/academic_programs/mba_programs/professional_mba/) program at the University of South Carolina [Darla Moore School of Business](https://sc.edu/study/colleges_schools/moore/index.php).
+This cheat sheet was developed for a course project in MGSC 790 Data
+Resource Management, a Business Analytics elective in the
+[PMBA](https://sc.edu/study/colleges_schools/moore/academic_programs/mba_programs/professional_mba/)
+program at the University of South Carolina [Darla Moore School of
+Business](https://sc.edu/study/colleges_schools/moore/index.php).
 
-It is intended as a quick reference of data structures, functions, and packages for the R language. Please see the official [Rdocumentation](https://www.rdocumentation.org/) for a comprehensive reference.
+It is intended as a quick reference of data structures, functions, and
+packages for the R language. Please see the official
+[Rdocumentation](https://www.rdocumentation.org/) for a comprehensive
+reference.
 
 <br />
 
@@ -18,17 +25,17 @@ It is intended as a quick reference of data structures, functions, and packages 
 
   [ggplot2](#ggplot2)
 
-  [utils](#utils)
+  [httr](#httr)
+
+  [jsonlite](#jsonlite)
+
+  [gdata](#gdata)
 
   [readr](#readr)
 
   [readxl](#readxl)
 
   [DBI](#dbi)
-
-  [httr](#httr)
-
-  [jsonlite](#jsonlite)
 
   [haven](#haven)
 
@@ -40,21 +47,29 @@ It is intended as a quick reference of data structures, functions, and packages 
 
 ##### <a name="dataStructures"></a>Data structures
 
-A [vector](http://adv-r.had.co.nz/Data-structures.html#vectors) is an array of homogenous datatypes.
+A [vector](http://adv-r.had.co.nz/Data-structures.html#vectors) is an
+array of homogenous datatypes.
 
 A list similar to a vector but can contain heterogeneous datatypes.
 
-A [matrix](http://adv-r.had.co.nz/Data-structures.html#matrices-and-arrays) is a two-dimensional vector of homogenous datatypes.
+A
+[matrix](http://adv-r.had.co.nz/Data-structures.html#matrices-and-arrays)
+is a two-dimensional vector of homogenous datatypes.
 
-An array is a vector with one or more dimensions. So, an array with one dimension is (almost) the same as a vector. An array with two dimensions is (almost) the same as a matrix. An array with three or more dimensions is an n-dimensional array.
+An array is a vector with one or more dimensions. So, an array with one
+dimension is (almost) the same as a vector. An array with two dimensions
+is (almost) the same as a matrix. An array with three or more dimensions
+is an n-dimensional array.
 
-A [data frame](http://adv-r.had.co.nz/Data-structures.html#data-frames) is similar to a table in a database. Each column in the data frame holds the same type, and the columns can have names.
+A [data frame](http://adv-r.had.co.nz/Data-structures.html#data-frames)
+is similar to a table in a database. Each column in the data frame holds
+the same type, and the columns can have names.
 
 ##### <a name="functions"></a>Base Functions
 
 [c](https://www.rdocumentation.org/packages/base/topics/c)
 
-``` r
+``` {.r}
 # combine Values into a Vector or List
 c("China", "India", "United States of America")
 ```
@@ -64,7 +79,7 @@ c("China", "India", "United States of America")
 
 [matrix](https://www.rdocumentation.org/packages/base/topics/matrix)
 
-``` r
+``` {.r}
 # creates a matrix from the given set of values.
 matrix(1:9, nrow=3)
 ```
@@ -76,7 +91,7 @@ matrix(1:9, nrow=3)
 
 [data.frame](https://www.rdocumentation.org/packages/base/topics/data.frame)
 
-``` r
+``` {.r}
 # creates data frames
 worldPop <- data.frame(country, population)
 worldPop
@@ -89,7 +104,7 @@ worldPop
 
 [subset](https://www.rdocumentation.org/packages/base/topics/subset)
 
-``` r
+``` {.r}
 # return subsets of vectors, matrices or data frames which meet conditions.
 subset(worldPop, country=="China")
 ```
@@ -99,7 +114,7 @@ subset(worldPop, country=="China")
 
 [factor](https://www.rdocumentation.org/packages/base/topics/factor)
 
-``` r
+``` {.r}
 # encode a vector as a factor
 factor(c("A", "B", "B",  "C", "C", "C"))
 ```
@@ -109,7 +124,7 @@ factor(c("A", "B", "B",  "C", "C", "C"))
 
 [gl](https://www.rdocumentation.org/packages/base/topics/gl)
 
-``` r
+``` {.r}
 # generate factor levels
 gl(3,1)
 ```
@@ -119,7 +134,7 @@ gl(3,1)
 
 [levels](https://www.rdocumentation.org/packages/base/topics/levels)
 
-``` r
+``` {.r}
 # provides access to the levels attribute of a variable
 lowMedHigh <- gl(3, 1)
 levels(lowMedHigh) <- c("low", "medium", "high")
@@ -131,7 +146,7 @@ lowMedHigh
 
 [paste](https://www.rdocumentation.org/packages/base/topics/paste)
 
-``` r
+``` {.r}
 # concatenate vectors
 paste("this", "is", "a", "concatenation")
 ```
@@ -140,7 +155,7 @@ paste("this", "is", "a", "concatenation")
 
 [lapply](https://www.rdocumentation.org/packages/base/topics/lapply)
 
-``` r
+``` {.r}
 # apply a function over a list or vector and return a list
 lapply(c("a", "b", "c"), toupper)
 ```
@@ -156,7 +171,7 @@ lapply(c("a", "b", "c"), toupper)
 
 [sapply](https://www.rdocumentation.org/packages/base/topics/sapply)
 
-``` r
+``` {.r}
 # apply a function over a list or vector and return a vector, matrix, or array
 sapply(c("a", "b", "c"), toupper)
 ```
@@ -166,7 +181,7 @@ sapply(c("a", "b", "c"), toupper)
 
 [vapply](https://www.rdocumentation.org/packages/base/topics/vapply)
 
-``` r
+``` {.r}
 # apply a function over a list or vector and return a vector, matrix, or array of the specified type
 vapply(c("a", "b", "c"), toupper, character(1))
 ```
@@ -176,7 +191,7 @@ vapply(c("a", "b", "c"), toupper, character(1))
 
 [identical](https://www.rdocumentation.org/packages/base/topics/identical)
 
-``` r
+``` {.r}
 x <- 1000
 y <- 1000
 
@@ -188,31 +203,31 @@ identical(x, y)
 
 [Sys.Date](https://www.rdocumentation.org/packages/base/topics/Sys.Date)
 
-``` r
+``` {.r}
 # return the current date
 Sys.Date
 ```
 
     ## function () 
     ## as.Date(as.POSIXlt(Sys.time()))
-    ## <bytecode: 0x0000000017343e70>
+    ## <bytecode: 0x0000000002ce7648>
     ## <environment: namespace:base>
 
 [Sys.time](https://www.rdocumentation.org/packages/base/topics/Sys.time)
 
-``` r
+``` {.r}
 # return the current date and time
 Sys.time
 ```
 
     ## function () 
     ## .POSIXct(.Internal(Sys.time()))
-    ## <bytecode: 0x000000001895e9b8>
+    ## <bytecode: 0x000000000ed5dab0>
     ## <environment: namespace:base>
 
 [format](https://www.rdocumentation.org/packages/base/topics/format)
 
-``` r
+``` {.r}
 # format an object for printing
 format(13.7, nsmall = 3)
 ```
@@ -221,7 +236,7 @@ format(13.7, nsmall = 3)
 
 [summary](https://www.rdocumentation.org/packages/base/topics/summary)
 
-``` r
+``` {.r}
 # produce result summaries of various model fitting functions
 summary(mtcars)
 ```
@@ -252,19 +267,25 @@ summary(mtcars)
 
 #### A handful of R packages
 
-There are over 13,000 packages that have been developed to supplement the R language. Below are a handful that were covered in the the course work of the [Data Scientist With R track](https://www.datacamp.com/tracks/data-scientist-with-r) on [Data Camp](https://datacamp.com). A number of handy packages are provided by the team at [RStudio](https://www.rstudio.com/products/rpackages/).
+There are over 13,000 packages that have been developed to supplement
+the R language. Below are a handful that were covered in the the course
+work of the [Data Scientist With R
+track](https://www.datacamp.com/tracks/data-scientist-with-r) on [Data
+Camp](https://datacamp.com). A number of handy packages are provided by
+the team at [RStudio](https://www.rstudio.com/products/rpackages/).
 
 <br />
 
 <a name="dplyr"></a>[dplyr](http://dplyr.tidyverse.org/)
 
-``` r
+``` {.r}
 library(dplyr, warn.conflicts = FALSE)
 ```
 
-dplyr provides a library for data manipulation, including the pipe operator `%>%` which allows for the chaining of functions
+dplyr provides a library for data manipulation, including the pipe
+operator `%>%` which allows for the chaining of functions
 
-``` r
+``` {.r}
 # filtering and ordering
 starwars %>%
   filter(homeworld=="Naboo") %>%
@@ -287,7 +308,7 @@ starwars %>%
     ## 8 Biological Human   Palpatine    
     ## 9 Machine    Droid   R2-D2
 
-``` r
+``` {.r}
 # aggregation
 starwars %>%
   filter(homeworld=="Naboo") %>%
@@ -305,14 +326,14 @@ starwars %>%
 
 ##### <a name="ggplot2"></a>[ggplot2](http://ggplot2.tidyverse.org/)
 
-``` r
+``` {.r}
 library(ggplot2)
 library(gapminder) # load gapminder dataset
 ```
 
 ggplot2 provides a library for visualizing data
 
-``` r
+``` {.r}
 # scatter plot
 gapminder %>% filter(year==2007) %>%
 ggplot(aes(x=gdpPercap, y=lifeExp, color=continent, size=pop)) +
@@ -322,9 +343,9 @@ ggplot(aes(x=gdpPercap, y=lifeExp, color=continent, size=pop)) +
   ggtitle("2007 Life Expectancy by GDP Per Capita")
 ```
 
-![](R-Cheat-Sheet_files/figure-markdown_github/unnamed-chunk-21-1.png)
+![](README_files/figure-markdown/unnamed-chunk-21-1.png)
 
-``` r
+``` {.r}
 # bar plot
 gapminder %>% filter(year==2007) %>%
 ggplot(aes(x=continent, y=gdpPercap)) +
@@ -334,9 +355,9 @@ ggplot(aes(x=continent, y=gdpPercap)) +
   ggtitle("2007 GDP Per Capita by Continent")
 ```
 
-![](R-Cheat-Sheet_files/figure-markdown_github/unnamed-chunk-21-2.png)
+![](README_files/figure-markdown/unnamed-chunk-21-2.png)
 
-``` r
+``` {.r}
 # line plot
 gapminder %>% filter(country=="China") %>%
 ggplot(aes(x=year, y=gdpPercap, color=country)) +
@@ -346,13 +367,13 @@ ggplot(aes(x=year, y=gdpPercap, color=country)) +
   ggtitle("GDP Per Capita by Year in China")
 ```
 
-![](R-Cheat-Sheet_files/figure-markdown_github/unnamed-chunk-21-3.png)
+![](README_files/figure-markdown/unnamed-chunk-21-3.png)
 
-##### <a name="httr"></a>[httr](https://www.rdocumentation.org/packages/gdata)
+##### <a name="httr"></a>[httr](https://www.rdocumentation.org/packages/httr)
 
 httr provides a library for working with HTTP resources
 
-``` r
+``` {.r}
 library(httr)
 response <- GET("http://httpbin.org/uuid")
 status_code(response)
@@ -360,19 +381,19 @@ status_code(response)
 
     ## [1] 200
 
-``` r
+``` {.r}
 content(response, "text")
 ```
 
     ## No encoding supplied: defaulting to UTF-8.
 
-    ## [1] "{\n  \"uuid\": \"02e4da35-b3f9-4541-8c3b-d55be7203de4\"\n}\n"
+    ## [1] "{\n  \"uuid\": \"149469d7-4cbf-46d2-8cb2-01885f3c663b\"\n}\n"
 
 ##### <a name="jsonlite"></a>[jsonlite](https://www.rdocumentation.org/packages/jsonlite)
 
 jsonlite provides a library for parsing and generating JSON
 
-``` r
+``` {.r}
 library(jsonlite)
 fromJSON("http://httpbin.org/json")
 ```
@@ -395,7 +416,7 @@ fromJSON("http://httpbin.org/json")
     ## $slideshow$title
     ## [1] "Sample Slide Show"
 
-``` r
+``` {.r}
 gapminder %>% filter(year==2007, country=="China") %>%
   toJSON()
 ```
@@ -416,22 +437,28 @@ readxl provides a library for reading Excel spreadsheets
 
 ##### <a name="dbi"></a>[DBI](https://db.rstudio.com/dbi/)
 
-DBI provides a library for connecting to and executing SQL statements against a database
+DBI provides a library for connecting to and executing SQL statements
+against a database
 
 ##### <a name="haven"></a>[haven](https://www.rdocumentation.org/packages/haven)
 
-haven provides a library for working with datasets from other statistical software packages (SAS, SPSS, Stata)
+haven provides a library for working with datasets from other
+statistical software packages (SAS, SPSS, Stata)
 
 ##### <a name="rMarkdown"></a> [R Markdown](https://rmarkdown.rstudio.com/)
 
-R Markdown provides a library for generating documents (PDF, HTML, Markdown) that include R functions and output.
+R Markdown provides a library for generating documents (PDF, HTML,
+Markdown) that include R functions and output.
 
-This cheat sheet was produced using R Markdown.
+This cheat sheet was produced using R Markdown. The source code for
+producing it can be found on
+[Github](https://github.com/rowlanch/my-R-cheat-sheet).
 
 <br />
 
 ### References
 
-Data structure and function descriptions have been taken from the [RDocumentation](https://www.rdocumentation.org/) site.
+Data structure and function descriptions have been taken from the
+[RDocumentation](https://www.rdocumentation.org/) site.
 
 <br />

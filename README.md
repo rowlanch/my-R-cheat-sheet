@@ -317,7 +317,7 @@ ggplot(aes(x=gdpPercap, y=lifeExp, color=continent, size=pop)) +
   ggtitle("2007 Life Expectancy by GDP Per Capita") # provide a title
 ```
 
-![](README_files/figure-markdown_github/unnamed-chunk-21-1.png)
+![](https://raw.githubusercontent.com/rowlanch/my-R-cheat-sheet/master/README_files/figure-markdown/unnamed-chunk-21-1.png)
 
 ``` r
 # bar plot
@@ -329,7 +329,7 @@ ggplot(aes(x=continent, y=gdpPercap)) +
   ggtitle("2007 GDP Per Capita by Continent")
 ```
 
-![](README_files/figure-markdown_github/unnamed-chunk-21-2.png)
+![](https://raw.githubusercontent.com/rowlanch/my-R-cheat-sheet/master/README_files/figure-markdown/unnamed-chunk-21-2.png)
 
 ``` r
 # line plot
@@ -341,7 +341,7 @@ ggplot(aes(x=year, y=gdpPercap, color=country)) +
   ggtitle("GDP Per Capita by Year in China")
 ```
 
-![](README_files/figure-markdown_github/unnamed-chunk-21-3.png)
+![](https://raw.githubusercontent.com/rowlanch/my-R-cheat-sheet/master/README_files/figure-markdown/unnamed-chunk-21-3.png)
 
 #### A handful of R packages
 
